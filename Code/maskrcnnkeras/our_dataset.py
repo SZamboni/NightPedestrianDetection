@@ -20,20 +20,22 @@ from mrcnn.model import load_image_gt
 from mrcnn.model import mold_image
 
 from matplotlib import pyplot
-
+from pycocotools.coco import COCO
 
 # class that defines and loads the nightowls dataset
 class OurDataset(Dataset):
     
     # load the dataset definitions
-    def load_dataset(self, images_dir, annFile, is_train=True):
-        from pycocotools.coco import COCO
+    def load_dataset(self, images_dir, annFile, is_train=True, val_percentage = 0.2):
+        
         self.cocovar = COCO(annFile)
         self.imgIds = list(sorted(self.cocovar.imgs.keys()))
         self.images_dir = images_dir
+        self.imgs_count = len(self.imgIds)
         
         self.add_class("dataset", 1, "pedestrian")
         self.add_class("dataset", 2, "bycicle")
+        self.add_class("dataset", 3, "motorcycle")
         self.add_class("dataset", 4, "ignore")
         
         i=0
@@ -42,9 +44,9 @@ class OurDataset(Dataset):
             img_filename = cocoimg['file_name']
             path = os.path.join(self.images_dir,img_filename)
             
-            if i >= 150 and is_train == False: # validation
+            if i >= self.imgs_count*(1-val_percentage) and is_train == False: # validation
                 self.add_image('dataset', image_id=i, path=path, real_id = im_id)
-            elif i < 150 and is_train == True: # training
+            elif i < self.imgs_count*(1-val_percentage) and is_train == True: # training
                 self.add_image('dataset', image_id=i, path=path, real_id = im_id)
             
             i=i+1
@@ -53,7 +55,8 @@ class OurDataset(Dataset):
     def load_mask(self, image_id):
         
         # get the image id and its filename
-        img_id = self.imgIds[image_id]
+        #img_id = self.imgIds[image_id]
+        img_id = self.image_info[image_id]['real_id']
         cocoimg = self.cocovar.loadImgs(ids=img_id)[0]
         
         img_filename = cocoimg['file_name']
