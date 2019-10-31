@@ -20,7 +20,7 @@ from matplotlib import pyplot
 from Mask_RCNN.mrcnn.config import Config
 from Mask_RCNN.mrcnn.model import MaskRCNN
 
-from our_dataset_onlyped import OurDataset
+from our_dataset_onlyped_half import OurDataset
 
 # define a configuration for the model
 class TrainConfig(Config):
@@ -29,7 +29,7 @@ class TrainConfig(Config):
     # Number of classes (background + kangaroo)
     NUM_CLASSES = 2
     # Number of training steps per epoch
-    STEPS_PER_EPOCH = 112
+    STEPS_PER_EPOCH = 500
     
     LEARNING_RATE = 1e-3
     IMAGES_PER_GPU = 2
@@ -56,16 +56,18 @@ def main(ann_file_path,images_path,learning_rate,epochs,val_percentage):
     # load weights (mscoco)
     model.load_weights('/home/test/data/mask_rcnn_coco.h5', by_name=True, exclude=["mrcnn_class_logits", "mrcnn_bbox_fc",  "mrcnn_bbox", "mrcnn_mask"])
 
+    print('START TRAINING')
+    
     # train weights (output layers or 'heads')
     model.train(train_set, val_set, learning_rate=config.LEARNING_RATE, epochs=2, layers='all')
 
     print('Training DONE')
 
 
-ann_file_path = '/home/test/data/nightowls/nightowls_validation_small.json'
-images_path = '/home/test/data/nightowls/validation/nightowls_validation'
+ann_file_path = '/home/test/data/nightowls/nightowls_training.json'
+images_path = '/home/test/data/nightowls/nightowls_training/nightowls_training'
 learning_rate = 1e-3
-epochs = 5
-val_percentage = 0.1
+epochs = 50
+val_percentage = 0.005
 
 main(ann_file_path,images_path,learning_rate,epochs, val_percentage)

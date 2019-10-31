@@ -12,7 +12,10 @@ from mrcnn.model import load_image_gt
 from mrcnn.model import mold_image
 
 from our_dataset import OurDataset
-
+'''
+ Their is in the format:
+[{"image_id":7000000,"category_id":1,"bbox":[645.55109817521941,229.397521973,21.598609313961,52.6795349121],"score":0.0935320705175},{"image_id":7000000,"...}]
+'''
 def fromOutputToAnn(image_id,out):
     
     recognized_objects = []
@@ -25,19 +28,18 @@ def fromOutputToAnn(image_id,out):
         bbox[2] = bbox[2]-bbox[0]
         bbox[3] = bbox[3]-bbox[1]
         
-        bbox[0] = float(bbox[0])
-        bbox[1] = float(bbox[1])
-        bbox[2] = float(bbox[2])
-        bbox[3] = float(bbox[3])
-        
         bbox = bbox.tolist()
         
+        bbox[0] = float(bbox[0]) + 0.01
+        bbox[1] = float(bbox[1])+ 0.01
+        bbox[2] = float(bbox[2])+ 0.01
+        bbox[3] = float(bbox[3])+ 0.01
         
         entry = {
+            "image_id" : int(image_id),
             "category_id": int(class_id),
             "bbox" : bbox,
-            "score": float(score),
-            "image_id" : int(image_id)
+            "score": float(score)            
         }
         recognized_objects.append(entry)
         
