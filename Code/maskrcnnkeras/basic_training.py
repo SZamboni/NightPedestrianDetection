@@ -59,7 +59,7 @@ def main(ann_file_path,images_path,learning_rate,epochs,val_percentage):
     print('START TRAINING')
     
     # train weights (output layers or 'heads')
-    model.train(train_set, val_set, learning_rate=config.LEARNING_RATE, epochs=2, layers='all')
+    model.train(train_set, val_set, learning_rate=config.LEARNING_RATE, epochs=epochs, layers='all')
 
     print('Training DONE')
 
