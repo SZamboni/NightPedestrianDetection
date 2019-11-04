@@ -11,7 +11,7 @@ from Mask_RCNN.mrcnn.model import MaskRCNN
 # define a configuration for the model
 class TrainConfig(Config):
     # Give the configuration a recognizable name
-    NAME = "exp1-1"
+    NAME = "exp1-3"
     # Number of classes (background + kangaroo)
     NUM_CLASSES = 2
     # Number of training steps per epoch
