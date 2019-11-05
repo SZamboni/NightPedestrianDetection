@@ -3,6 +3,9 @@
 from our_datasets import OurTestDataset, OurTrainDataset, OurALLTestDataset, OurUselessValidationDataset
 from exp5dataset import OurExp5TrainDataset
 
+import os
+os.environ["CUDA_VISIBLE_DEVICES"]="0"
+
 import sys
 sys.path.append('../')
 
