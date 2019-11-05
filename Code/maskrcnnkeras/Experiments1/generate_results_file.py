@@ -66,6 +66,8 @@ def generateAnnotations(dataset,model,cfg):
     i = 0
     all_outputs = []
     for image_id in dataset.image_ids:
+        if (image_id % 100) == 0:
+            print(image_id)
         # load image info
         info = dataset.image_info[image_id]
         
