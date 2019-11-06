@@ -1,8 +1,5 @@
 # TRAINING
 
-import os
-os.environ["CUDA_VISIBLE_DEVICES"]="1"
-
 from our_datasets import OurTestDataset, OurTrainDataset, OurALLTestDataset
 
 import sys
@@ -14,7 +11,7 @@ from Mask_RCNN.mrcnn.model import MaskRCNN
 # define a configuration for the model
 class TrainConfig(Config):
     # Give the configuration a recognizable name
-    NAME = "exp2-1-"
+    NAME = "exp2-AGC-"
     # Number of classes (background + kangaroo)
     NUM_CLASSES = 2
     # Number of training steps per epoch
@@ -23,7 +20,6 @@ class TrainConfig(Config):
     LEARNING_RATE = 1e-3
     IMAGES_PER_GPU = 2
     RPN_NMS_THRESHOLD = 0.6
-    DETECTION_MIN_CONFIDENCE = 0.5
 
 def main(ann_file_path,images_path,epochs,ped_percentage,val_images_path , val_ann_file, preproType):
     # train set
@@ -61,7 +57,7 @@ val_ann_file = '/home/test/data/nightowls/nightowls_validation_1.json'
 val_images_path =  '/home/test/data/nightowls/validation/nightowls_validation'
 learning_rate = 1e-3
 epochs = 66 # corresponding to three pass on all data
-ped_percentage = 1
-preproType = 'MSRCP' # original_image, HE, AGC, CLAHE, MSRCP, Ying_CAIP
+ped_percentage = 0.5
+preproType = 'AGC' # original_image, HE, AGC, CLAHE, MSRCP, Ying_CAIP
 
 main(train_ann_file_path,train_images_path,epochs, ped_percentage,val_images_path,val_ann_file,preproType)
