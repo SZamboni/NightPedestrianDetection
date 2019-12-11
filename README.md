@@ -3,8 +3,8 @@ Pedestrian detection at night with Deep Learning project done for the Research M
 Our project aimed to improve the state-of-the-art techniques for detection using deep learning on dark images.
 The project has been done by Olivier Nicolini and Simone Zamboni. <br/>
 The mian code was done in Keras and it is based on the repository https://github.com/matterport/Mask_RCNN implementing MaskRCNN with Keras. <br/>
-The dataset used is the NihtOwls dataset (http://www.nightowls-dataset.org/ ) and if you want to rund the code you have to download training and validation images on your PC. <br/>
-In this repository tere is the report for the course project, under the name "Report_Nicolini_Zamboni.pdf". <br/>
+The dataset used is the NihtOwls dataset (http://www.nightowls-dataset.org/ ) and if you want to run the code you have to download training and validation images on your PC. <br/>
+In this repository there is the report for the course project, under the name "Report_Nicolini_Zamboni.pdf". <br/>
 
 ## Results
 Using Adaptive Gamma Correction With Weighting Distribution to preprocess the images and 18k iterations of training we achieved an mAP of 0.058 and a miss rate of 38%, while the Faster R-CNN trained for 100k iterations by the authors of the NightOwls dataset achieved an mAP of 0.060 and a miss rate of 29%. <br/>
