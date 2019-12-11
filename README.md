@@ -11,6 +11,9 @@ In this repository there is also the report for the course project, under the na
 With signifincatly less training and resources we were able to achieve good performance by training a network on a subset of the whole dataset using half of the images with pedestrians inside and half of just background images. We also used Adaptive Gamma Correction as preprocessing to make images clearer and brighter before feeding them to the network.  <br/><br/>
 Using Adaptive Gamma Correction with Weighting Distribution to preprocess the images and 18k iterations of training, we achieved an mAP of 0.058 and a miss rate of 38%, while the Faster R-CNN trained for 100k iterations by the authors of the NightOwls dataset achieved an mAP of 0.060 and a miss rate of 29%.
 
+## MaskRCNN
+In the report we refer as our implementation as Faster R-CNN, but here we have Mask R-CNN as baseline. As far as our understanding goes, Mask R-CNN is a Faster R-CNN with attatched another layer to output also the mask of each object. In our case we basically didn't use that layer bacause we manually set the mask of a pedestrian to be the entire bounding box, and therefore we can call our implementation a Faster R-CNN because it uses the Faster R-CNN structure and does not use any mask.
+
 ## Repository structure
 In the main folder it is possible to find our report for the course. <br/>
 The folder "Code" contains a directory called "Preliminary_test" that contains some tests that we did using Pytorch framewok to implement the project, but in the end we abondoned this route since we used Keras, and therefore these file are only there for reference. <br/>
