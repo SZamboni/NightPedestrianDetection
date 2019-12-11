@@ -1,14 +1,15 @@
 # Pedestrian detection at night with Deep Learning
 Pedestrian detection at night with Deep Learning project done for the Research Methodology and Scientific Writing course of periods 1 and 2 (from September 2019 to January 2020) held by Mihhail Matskin at KTH Royal Institute of Technology. 
 Our project aimed to improve the state-of-the-art techniques for detection using deep learning on dark images.
-The project has been done by Olivier Nicolini and Simone Zamboni. <br/>
+The project has been done by **Olivier Nicolini** and **Simone Zamboni**. <br/>
 The code was done using Keras framework and it is based on the repository https://github.com/matterport/Mask_RCNN implementing MaskRCNN with Keras. <br/>
 The dataset used is the NightOwls dataset (http://www.nightowls-dataset.org/ ) and if you want to run the code you have to download the training and validation images on your PC. <br/>
 In this repository there is also the report for the course project, under the name "Report_Nicolini_Zamboni.pdf". <br/>
 
 ## Results
-Using Adaptive Gamma Correction with Weighting Distribution to preprocess the images and 18k iterations of training, we achieved an mAP of 0.058 and a miss rate of 38%, while the Faster R-CNN trained for 100k iterations by the authors of the NightOwls dataset achieved an mAP of 0.060 and a miss rate of 29%. <br/>
-With signifincatly less training and resources we were able to achieve good performance by training a network on a subset of the whole dataset using half of the images with pedestrians inside and half of just background images. We also used Adaptive Gamma Correction as preprocessing to make images clearer and brighter before feeding them to the network.
+
+With signifincatly less training and resources we were able to achieve good performance by training a network on a subset of the whole dataset using half of the images with pedestrians inside and half of just background images. We also used Adaptive Gamma Correction as preprocessing to make images clearer and brighter before feeding them to the network.  <br/>
+Using Adaptive Gamma Correction with Weighting Distribution to preprocess the images and 18k iterations of training, we achieved an mAP of 0.058 and a miss rate of 38%, while the Faster R-CNN trained for 100k iterations by the authors of the NightOwls dataset achieved an mAP of 0.060 and a miss rate of 29%.
 
 ## Repository structure
 In the main folder it is possible to find our report for the course. <br/>
