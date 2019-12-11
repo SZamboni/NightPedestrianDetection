@@ -12,7 +12,7 @@ With signifincatly less training and resources we were able to achieve good perf
 Using Adaptive Gamma Correction with Weighting Distribution to preprocess the images and 18k iterations of training, we achieved an mAP of 0.058 and a miss rate of 38%, while the Faster R-CNN trained for 100k iterations by the authors of the NightOwls dataset achieved an mAP of 0.060 and a miss rate of 29%.
 
 ## MaskRCNN
-In the report we refer as our implementation as Faster R-CNN, but here we have Mask R-CNN as baseline. As far as our understanding goes, Mask R-CNN is a Faster R-CNN with attatched another layer to output also the mask of each object. In our case we basically didn't use that layer bacause we manually set the mask of a pedestrian to be the entire bounding box, and therefore we can call our implementation a Faster R-CNN because it uses the Faster R-CNN structure and does not use any mask.
+In the report we refer to our implementation as a Faster R-CNN architecture, however here we are using an implementation of Mask R-CNN as baseline. As far as our understanding goes, Mask R-CNN is a Faster R-CNN with attatched another layer to output also the mask of each object. In our case we basically didn't use that layer bacause we manually set the mask of a pedestrian to be the entire bounding box, and therefore we can call our implementation a Faster R-CNN because it uses the Faster R-CNN structure and does not use any mask, we only use and train the network on bounding boxes.
 
 ## Repository structure
 In the main folder it is possible to find our report for the course. <br/>
