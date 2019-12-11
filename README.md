@@ -8,7 +8,7 @@ In this repository there is also the report for the course project, under the na
 
 ## Results
 Using Adaptive Gamma Correction with Weighting Distribution to preprocess the images and 18k iterations of training, we achieved an mAP of 0.058 and a miss rate of 38%, while the Faster R-CNN trained for 100k iterations by the authors of the NightOwls dataset achieved an mAP of 0.060 and a miss rate of 29%. <br/>
-With signifincatly less training and resources we were able to achieve good performance by training a network on a subset of the whole dataset with half of the images with pedestrians inside and half of just background images and using Adaptive Gamma Correction as preprocessing to make images clearer and brighter before feeding them to the network.
+With signifincatly less training and resources we were able to achieve good performance by training a network on a subset of the whole dataset using half of the images with pedestrians inside and half of just background images. We also used Adaptive Gamma Correction as preprocessing to make images clearer and brighter before feeding them to the network.
 
 ## Repository structure
 In the main folder it is possible to find our report for the course. <br/>
