@@ -1,18 +1,17 @@
 # Pedestrian detection at night with Deep Learning
-Pedestrian detection at night with Deep Learning project done for the Research Methodology and Scientific Writing course of periods 1 and 2 (from September 2019 to January 2020) held by Mihhail Matskin at KTH Royal Institute of Technology. 
+Project done for the Research Methodology and Scientific Writing course of periods 1 and 2 (from September 2019 to January 2020) held by Mihhail Matskin at KTH Royal Institute of Technology. 
 Our project aimed to improve the state-of-the-art techniques for detection using deep learning on dark images.
 The project has been done by **Olivier Nicolini** and **Simone Zamboni**. <br/>
-The code was done using Keras framework and it is based on the repository https://github.com/matterport/Mask_RCNN implementing MaskRCNN with Keras. <br/>
+The project was implemented using the Keras framework and it is based on the repository https://github.com/matterport/Mask_RCNN implementing MaskRCNN with Keras. <br/>
 The dataset used is the NightOwls dataset (http://www.nightowls-dataset.org/ ) and if you want to run the code you have to download the training and validation images on your PC. <br/>
 In this repository there is also the report for the course project, under the name "Report_Nicolini_Zamboni.pdf". <br/>
 
 ## Results
-
-With signifincatly less training and resources we were able to achieve good performance by training a network on a subset of the whole dataset using half of the images with pedestrians inside and half of just background images. We also used Adaptive Gamma Correction as preprocessing to make images clearer and brighter before feeding them to the network.  <br/><br/>
+With signifincatly less training and resources we were able to achieve good performance by training a network on a subset of the whole dataset using half of the images with pedestrians inside and half of just background images. We also find out that using Adaptive Gamma Correction(AGC) as preprocessing to make images clearer and brighter before feeding them to the network improves accuracy.  <br/><br/>
 Using Adaptive Gamma Correction with Weighting Distribution to preprocess the images and 18k iterations of training, we achieved an mAP of 0.058 and a miss rate of 38%, while the Faster R-CNN trained for 100k iterations by the authors of the NightOwls dataset achieved an mAP of 0.060 and a miss rate of 29%.
-
-## MaskRCNN
-In the report we refer to our implementation as a Faster R-CNN architecture, however here we are using an implementation of Mask R-CNN as baseline. As far as our understanding goes, Mask R-CNN is a Faster R-CNN with attatched another layer to output also the mask of each object. In our case we basically didn't use that layer bacause we manually set the mask of a pedestrian to be the entire bounding box, and therefore we can call our implementation a Faster R-CNN because it uses the Faster R-CNN structure and does not use any mask, we only use and train the network on bounding boxes.
+Different data pre-processing techniques tested:
+![alt text](https://github.com/SZamboni/NightPedestrianDetection/blob/master/img.png)
+HE=Histogram Equalization, ACG=Adaptive Gamma Correction, CLAHE=Contrast Limited Adaptive Histogram Equalization, MSRCR=Multi-Scale Retinex with Colour Restoration, YING=Method proposed by Ying et. al in “A New Image Contrast Enhancement Algorithm Using Exposure Fusion Framework”. The best one for improving network accuracy is AGC.
 
 ## Repository structure
 In the main folder it is possible to find our report for the course. <br/>
