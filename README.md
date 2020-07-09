@@ -8,7 +8,7 @@ In this repository there is also the report for the course project, under the na
 
 ## Results
 With signifincatly less training and resources we were able to achieve good performance by training a network on a subset of the whole dataset using half of the images with pedestrians inside and half of just background images. We also find out that using Adaptive Gamma Correction(AGC) as preprocessing to make images clearer and brighter before feeding them to the network improves accuracy.  <br/><br/>
-Using Adaptive Gamma Correction with Weighting Distribution to preprocess the images and 18k iterations of training, we achieved an mAP of 0.058 and a miss rate of 38%, while the Faster R-CNN trained for 100k iterations by the authors of the NightOwls dataset achieved an mAP of 0.060 and a miss rate of 29%. <br/>
+Using Adaptive Gamma Correction with Weighting Distribution to preprocess the images and 18k iterations of training, we achieved an mAP of 0.058 and a miss rate of 38%, while the Faster R-CNN trained for 100k iterations by the authors of the NightOwls dataset achieved an **mAP of 0.060 and a miss rate of 29%**. <br/>
 Here are the different data pre-processing techniques tested:
 ![alt text](https://github.com/SZamboni/NightPedestrianDetection/blob/master/img.png)
 HE=Histogram Equalization, ACG=Adaptive Gamma Correction, CLAHE=Contrast Limited Adaptive Histogram Equalization, MSRCR=Multi-Scale Retinex with Colour Restoration, YING=Method proposed by Ying et. al in “A New Image Contrast Enhancement Algorithm Using Exposure Fusion Framework”. The best one for improving network accuracy is AGC.
